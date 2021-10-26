@@ -8,7 +8,7 @@ import trello from '../img/trello.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
-const Hero = () => {
+const Hero = ({openModal}) => {
    
     return (
         <div className="container grid hero">
@@ -21,7 +21,7 @@ const Hero = () => {
                         <p>HTML</p>
                     </div>
                     <div className="cta">
-                        <button>Hire now</button>
+                        <button onClick={openModal}>Hire now</button>
                         <a style={{color:'black'}} href="google.com">Download CV &rarr;</a>
                     </div>
                 </div>

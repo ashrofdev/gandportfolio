@@ -9,11 +9,17 @@ import huddle from '../img/huddle.png'
 import butgety from '../img/butgety.png'
 import fsp from '../img/fsp.png'
 
+import Modal from 'react-modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink } from '@fortawesome/free-solid-svg-icons'
+
 const Portfolio = () => {
 
     const [start, setStart] = useState(0)
     const [end, setEnd] = useState(6)
     const [category, setCategory] = useState('all')
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [selectedProject, setSelectedPoject] = useState({})
 
     const projects = [
         {
@@ -83,8 +89,58 @@ const Portfolio = () => {
         setEnd(end+direction)
     }
 
+
+  const openModal = () =>{
+    setModalIsOpen(true)
+  }
+
+
+  const closeModal = () =>{
+    setModalIsOpen(false)
+  }
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width:'40vw',
+      position:'relative',
+      zIndex:'100',
+      border:'none',
+      borderRadius: '.5rem',
+      boxShadow:'1px 1px 1rem rgba(7, 7, 7, 0.474)',
+    
+    },
+    overlay: {
+      backgroundColor: 'rgba(7, 7, 7, 0.574)'
+    },
+  };
+
     return (
         <div className="container portfolio">
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
+            >
+
+                <p onClick={closeModal} style={{textAlign:'right', fontSize:'1.3rem', cursor:'pointer'}}>&times;</p>
+                <div>
+                    <img style={{width:'100%', margin:'.5rem 0'}} src={selectedProject.img} alt="pgimg"/>
+                </div>
+                <div style={{margin:'1rem 0'}}>
+                    <h3 style={{margin:'.3rem 0',}}>{selectedProject.title}</h3>
+                    <a href="google.com" style={{textDecoration:'none', fontStyle:'italic'}} ><FontAwesomeIcon style={{marginRight:'.3rem'}} icon={faLink} />swe</a>
+                    <p style={{marginTop:'1rem'}}>{selectedProject.info}</p>
+                </div>
+                
+            </Modal>
             <h4 style={{textAlign:'center'}}>My Recent projects</h4>
             <div className="nav">
                 <button onClick={()=> setCategory('all')}>All</button>
@@ -97,7 +153,10 @@ const Portfolio = () => {
                 {
                     projects.map(project=>{
                         if(project.category.includes(category)){
-                            return <div className="project">
+                            return <div onClick={()=> {
+                                setSelectedPoject(project)
+                                openModal()
+                            }} className="project">
                                     <img alt="" src={project.img} />
                                     <div className="info">
                                         <h5>{project.title}</h5>

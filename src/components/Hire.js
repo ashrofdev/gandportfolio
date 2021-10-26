@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Hire = () => {
+const Hire = ({openModal}) => {
     return (
         <div className="fullwidth hire">
             <h4>Let's get your task completed together</h4>
-            <button style={{marginTop:"2rem"}}>Hire now</button>
+            <button onClick={openModal} style={{marginTop:"2rem"}}>Hire now</button>
         </div>
     );
 };

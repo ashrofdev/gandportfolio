@@ -1,0 +1,264 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Overlock, sans-serif;
+}
+
+.App{
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr) repeat(8, minmax(4rem, 9.5rem)) minmax(2rem, 1fr);
+
+    &  .grid {
+        display: grid;
+        grid-template-columns: minmax(2rem, 1fr) repeat(8, minmax(4rem, 8rem)) minmax(2rem, 1fr);
+    }
+
+    &  .container {
+        grid-column: 2/10;
+        padding: 3rem 0;
+    }
+
+    &  .fullwidth {
+        grid-column: 1/-1;
+        padding: 3rem 0;
+    }
+
+    //styling header
+
+    &  .header {
+        grid-column: 2/10;
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+
+        &  img {
+            margin-right: 2rem;
+        }
+
+        &  ul {
+            list-style: none;
+            width: 75%;
+
+            &  li {
+                margin-right: 1rem;
+                padding: .5rem;
+            }
+        }
+    }
+
+
+
+    // component styles
+
+    &  .hero {
+        height: 60vh;
+
+        &  .fullwidth {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &  .content {
+                &  h1 {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                }
+                &  h3 {
+                    font-size: 1.5rem;
+                    font-weight: 100;
+                }
+                &  p {
+                    font-weight: 100;
+                }
+
+                &  .cta {
+                    margin: 2rem 0;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    &  button {
+                        padding: .5rem 1.7rem;
+                        color: #fff;
+                        background-color: green;
+                        border-radius: .3rem;
+                        margin-right: 1rem;
+                        border: none;
+                        box-shadow:  1px 1px 5px #c5c5c5;
+                    }
+                }
+            }
+
+            &  .imgshow {
+                width: 50%;
+                border-radius: .5rem;
+                height: max-content;
+                box-shadow:  1px 1px 5px #c5c5c5;
+
+                &  img {
+                    box-shadow:  1px 1px 5px #c5c5c5;
+                }
+            }
+        }
+    }
+
+
+    // stylinng skills section
+
+    &  .skills {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &  .skill {
+            text-align: center;
+        }
+    }
+
+    // styling heads up section
+
+    &  .expectations {
+
+        &  .attributes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+            margin: 2rem auto;
+
+            &  .attribute {
+                display: flex;
+                align-items: center;
+
+                &  img {
+                    width: 3rem;
+                    height: 3rem;
+                    margin-right: 1rem;
+                }
+
+                &  .info {
+
+                    &  h5 {
+                        margin-bottom: .5rem;
+                    }
+                    &  p {
+                        font-weight: 100;
+                    }
+                }
+            }
+        }
+    }
+
+    //styling portfolio section
+
+    &  .portfolio {
+        
+
+        &  .nav {
+            margin: 2rem 0;
+
+            &  button {
+                padding: .3rem 0;
+                margin-right: 2rem;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                    border-bottom: 1px solid currentColor;
+                }
+            }
+        }
+
+        &  .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+            margin: 2rem 0;
+
+            &  .project {
+                box-shadow: 1px 1px 2rem #c5c5c5;
+                border-radius: .5rem;
+                cursor: pointer;
+                transition: all .5s;
+
+                &:hover {
+                    transform: translateY(-.2rem);
+                    box-shadow: 1px 1px 1rem #c5c5c5;
+                }
+
+                &  img {
+                    width: 100%;
+                    border-radius: .5rem;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+
+                &  .info {
+                    padding: 1rem;
+
+                    &  h5 {
+                        font-size: 1.2rem;
+                    }
+
+                    &  p {
+                        font-weight: 100;
+                        font-size: .8rem;
+                        margin-top: .5rem;
+                    }
+                }
+
+            }
+        }
+
+        &  .pagin {
+
+            &  button {
+                padding: .3rem 0;
+                margin-right: 2rem;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                    border-bottom: 1px solid currentColor;
+                }
+            }
+        }
+    }
+
+    // styling hire now section
+
+    &  .hire {
+        padding: 3rem;
+        color: #fff;
+        text-align: center;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.623)), url(./img/wfm.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: top;
+
+        &  h4 {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        &  button {
+            padding: .5rem 1.7rem;
+            color: #fff;
+            background-color: green;
+            border-radius: .3rem;
+            margin-right: 1rem;
+            border: none;
+            box-shadow:  1px 1px 5px #272727;
+        }
+    }
+
+    &  button {
+        cursor: pointer;
+    }
+}

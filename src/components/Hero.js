@@ -1,0 +1,49 @@
+import React, { useState } from 'react';
+import Skills from './Skills';
+
+import fsp from '../img/fsp.png'
+import venue from '../img/venue.png'
+import trello from '../img/trello.png'
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
+const Hero = () => {
+   
+    return (
+        <div className="container grid hero">
+            <div className="fullwidth">
+                <div className="content">
+                    <h1 style={{margin:'1rem 0'}}>Need to do something on the web?</h1>
+                    <h3 style={{margin:'1rem 0'}}>You've come to the right place</h3>
+                    <div style={{display:'flex', alignItems:"center"}}>
+                        <p>I am a web engineer with experience working with</p>
+                        <p>HTML</p>
+                    </div>
+                    <div className="cta">
+                        <button>Hire now</button>
+                        <a style={{color:'black'}} href="google.com">Download CV &rarr;</a>
+                    </div>
+                </div>
+                <div className="imgshow">
+                    <Carousel autoPlay={true} infiniteLoop={true} showArrows={false} showThumbs={false}>
+                        <div>
+                            <img src={venue} />
+                        </div>
+                        <div>
+                            <img src={fsp} />
+                        </div>
+                        <div>
+                            <img src={trello} />
+                        </div>
+                    </Carousel>
+                </div>
+            </div>
+            {/* <div className="fullwidth">
+                <Skills/>
+            </div> */}
+        </div>
+    );
+};
+
+export default Hero;

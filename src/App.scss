@@ -1,291 +1,345 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Overlock, sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Overlock, sans-serif;
 }
+@import "./responsive.scss";
 
-.App{
-    display: grid;
-    grid-template-columns: minmax(2rem, 1fr) repeat(8, minmax(4rem, 9.5rem)) minmax(2rem, 1fr);
+.App {
+	display: grid;
+	grid-template-columns: minmax(2rem, 1fr) repeat(8, minmax(4rem, 9.5rem)) minmax(
+			2rem,
+			1fr
+		);
 
-    &  .grid {
-        display: grid;
-        grid-template-columns: minmax(2rem, 1fr) repeat(8, minmax(4rem, 8rem)) minmax(2rem, 1fr);
-    }
+	& .grid {
+		display: grid;
+		grid-template-columns: minmax(2rem, 1fr) repeat(8, minmax(4rem, 8rem)) minmax(
+				2rem,
+				1fr
+			);
+		@media only screen and (max-width: 600px) {
+			display: block;
+		}
+	}
 
-    &  .container {
-        grid-column: 2/10;
-        padding: 3rem 0;
-    }
+	& .container {
+		grid-column: 2/10;
+		padding: 3rem 0;
+	}
 
-    &  .fullwidth {
-        grid-column: 1/-1;
-        padding: 3rem 0;
-    }
+	& .fullwidth {
+		grid-column: 1/-1;
+		width: 100%;
+		padding: 3rem 0;
+	}
 
-    //styling header
+	//styling header
 
-    &  .header {
-        grid-column: 2/10;
-        display: flex;
-        align-items: center;
-        margin-top: 1rem;
+	& .header {
+		grid-column: 2/10;
+		display: grid;
+		align-items: center;
+		grid-template-columns: 1fr 4fr 0.5fr;
+		@media only screen and (max-width: 840px) {
+			grid-template-columns: 1fr 0.1fr;
+		}
 
-        &  img {
-            margin-right: 2rem;
-        }
+		& img {
+			margin-right: 2rem;
+			align-self: flex-start;
+		}
 
-        &  ul {
-            list-style: none;
-            width: 75%;
+		& ul {
+			display: flex;
+			align-items: center;
+			list-style: none;
+			justify-content: space-around;
+			transition: all ease-in 0.5s;
+			@media only screen and (max-width: 840px) {
+				position: absolute;
+				top: 40px;
+				left: 0;
+				right: 0;
+				height: 0;
+				opacity: 0;
+				overflow: hidden;
+				background-color: #fff;
+				padding-left: 25px;
+			}
 
-            &  li {
-                margin-right: 1rem;
-                padding: .5rem;
-            }
-        }
-    }
+			& li {
+				margin-right: 1rem;
+				padding: 0.5rem;
+			}
+		}
 
+		& .menu {
+			display: none;
+			@media only screen and (max-width: 840px) {
+				display: flex;
+				align-self: center;
+			}
+		}
+	}
 
+	// component styles
 
-    // component styles
+	& .hero {
+		height: 60vh;
+		@media only screen and (max-width: 950px) {
+			box-sizing: content-box;
+			margin-bottom: 5%;
+		}
 
-    &  .hero {
-        height: 60vh;
+		& .fullwidth {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@media only screen and (max-width: 950px) {
+				flex-direction: column;
+			}
 
-        &  .fullwidth {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+			& .content {
+				& h1 {
+					font-size: 2.5rem;
+					font-weight: 700;
+				}
+				& h3 {
+					font-size: 1.5rem;
+					font-weight: 100;
+				}
+				& p {
+					font-weight: 100;
+				}
 
-            &  .content {
-                &  h1 {
-                    font-size: 2.5rem;
-                    font-weight: 700;
-                }
-                &  h3 {
-                    font-size: 1.5rem;
-                    font-weight: 100;
-                }
-                &  p {
-                    font-weight: 100;
-                }
+				& .cta {
+					margin: 2rem 0;
 
-                &  .cta {
-                    margin: 2rem 0;
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
 
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
+					& button {
+						padding: 0.5rem 1.7rem;
+						color: #fff;
+						background-color: green;
+						border-radius: 0.3rem;
+						margin-right: 1rem;
+						border: none;
+						box-shadow: 1px 1px 5px #c5c5c5;
+					}
+				}
+			}
+			& .imgshow {
+				width: 50%;
+				border-radius: 0.5rem;
+				height: max-content;
+				box-shadow: 1px 1px 5px #c5c5c5;
+				@media only screen and (max-width: 950px) {
+					width: 80%;
+				}
+				@media only screen and (max-width: 600px) {
+					width: 100%;
+				}
 
-                    &  button {
-                        padding: .5rem 1.7rem;
-                        color: #fff;
-                        background-color: green;
-                        border-radius: .3rem;
-                        margin-right: 1rem;
-                        border: none;
-                        box-shadow:  1px 1px 5px #c5c5c5;
-                    }
-                }
-            }
+				& img {
+					box-shadow: 1px 1px 5px #c5c5c5;
+				}
+			}
+		}
+	}
 
-            &  .imgshow {
-                width: 50%;
-                border-radius: .5rem;
-                height: max-content;
-                box-shadow:  1px 1px 5px #c5c5c5;
+	// stylinng skills section
 
-                &  img {
-                    box-shadow:  1px 1px 5px #c5c5c5;
-                }
-            }
-        }
-    }
+	& .skills {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
+		& .skill {
+			text-align: center;
+		}
+	}
 
-    // stylinng skills section
+	// styling heads up section
 
-    &  .skills {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+	& .expectations {
+		& .attributes {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 2rem;
+			margin: 2rem auto;
+			@media only screen and (max-width: 950px) {
+				grid-template-columns: 1fr 1fr;
+			}
+			@media only screen and (max-width: 400px) {
+				grid-template-columns: 1fr;
+			}
 
-        &  .skill {
-            text-align: center;
-        }
-    }
+			& .attribute {
+				display: flex;
+				align-items: center;
+				@media only screen and (max-width: 400px) {
+					margin: 0% 20%;
+				}
 
-    // styling heads up section
+				& img {
+					width: 3rem;
+					height: 3rem;
+					margin-right: 1rem;
+				}
 
-    &  .expectations {
+				& .info {
+					& h5 {
+						margin-bottom: 0.5rem;
+					}
+					& p {
+						font-weight: 100;
+					}
+				}
+			}
+		}
+	}
 
-        &  .attributes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 2rem;
-            margin: 2rem auto;
+	//styling portfolio section
 
-            &  .attribute {
-                display: flex;
-                align-items: center;
+	& .portfolio {
+		& .nav {
+			margin: 2rem 0;
 
-                &  img {
-                    width: 3rem;
-                    height: 3rem;
-                    margin-right: 1rem;
-                }
+			& button {
+				padding: 0.3rem 0;
+				margin-right: 2rem;
+				border: none;
+				background-color: transparent;
+				cursor: pointer;
+				border-bottom: 1px solid transparent;
 
-                &  .info {
+				&:hover {
+					border-bottom: 1px solid currentColor;
+				}
+			}
+		}
 
-                    &  h5 {
-                        margin-bottom: .5rem;
-                    }
-                    &  p {
-                        font-weight: 100;
-                    }
-                }
-            }
-        }
-    }
+		& .projects {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 2rem;
+			margin: 2rem 0;
+			@media only screen and (max-width: 950px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media only screen and (max-width: 600px) {
+				grid-template-columns: 1fr;
+			}
 
-    //styling portfolio section
+			& .project {
+				box-shadow: 1px 1px 2rem #c5c5c5;
+				border-radius: 0.5rem;
+				cursor: pointer;
+				transition: all 0.5s;
 
-    &  .portfolio {
-        
+				&:hover {
+					transform: translateY(-0.2rem);
+					box-shadow: 1px 1px 1rem #c5c5c5;
+				}
 
-        &  .nav {
-            margin: 2rem 0;
+				& img {
+					width: 100%;
+					border-radius: 0.5rem;
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+				}
 
-            &  button {
-                padding: .3rem 0;
-                margin-right: 2rem;
-                border: none;
-                background-color: transparent;
-                cursor: pointer;
-                border-bottom: 1px solid transparent;
+				& .info {
+					padding: 1rem;
 
-                &:hover {
-                    border-bottom: 1px solid currentColor;
-                }
-            }
-        }
+					& h5 {
+						font-size: 1.2rem;
+					}
 
-        &  .projects {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 2rem;
-            margin: 2rem 0;
+					& p {
+						font-weight: 100;
+						font-size: 0.8rem;
+						margin-top: 0.5rem;
+					}
+				}
+			}
+		}
 
-            &  .project {
-                box-shadow: 1px 1px 2rem #c5c5c5;
-                border-radius: .5rem;
-                cursor: pointer;
-                transition: all .5s;
+		& .pagin {
+			& button {
+				padding: 0.3rem 0;
+				margin-right: 2rem;
+				border: none;
+				background-color: transparent;
+				cursor: pointer;
+				border-bottom: 1px solid transparent;
 
-                &:hover {
-                    transform: translateY(-.2rem);
-                    box-shadow: 1px 1px 1rem #c5c5c5;
-                }
+				&:hover {
+					border-bottom: 1px solid currentColor;
+				}
+			}
+		}
+	}
 
-                &  img {
-                    width: 100%;
-                    border-radius: .5rem;
-                    border-bottom-left-radius: 0;
-                    border-bottom-right-radius: 0;
-                }
+	// styling hire now section
 
-                &  .info {
-                    padding: 1rem;
+	& .hire {
+		padding: 3rem;
+		color: #fff;
+		text-align: center;
+		background-image: linear-gradient(
+				to right,
+				rgba(0, 0, 0, 0.719),
+				rgba(0, 0, 0, 0.623)
+			),
+			url(./img/wfm.jpeg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: top;
 
-                    &  h5 {
-                        font-size: 1.2rem;
-                    }
+		& h4 {
+			font-size: 1.4rem;
+			font-weight: 500;
+		}
 
-                    &  p {
-                        font-weight: 100;
-                        font-size: .8rem;
-                        margin-top: .5rem;
-                    }
-                }
+		& button {
+			padding: 0.5rem 1.7rem;
+			color: #fff;
+			background-color: green;
+			border-radius: 0.3rem;
+			margin-right: 1rem;
+			border: none;
+			box-shadow: 1px 1px 5px #272727;
+		}
+	}
 
-            }
-        }
-
-        &  .pagin {
-
-            &  button {
-                padding: .3rem 0;
-                margin-right: 2rem;
-                border: none;
-                background-color: transparent;
-                cursor: pointer;
-                border-bottom: 1px solid transparent;
-
-                &:hover {
-                    border-bottom: 1px solid currentColor;
-                }
-            }
-        }
-    }
-
-    // styling hire now section
-
-    &  .hire {
-        padding: 3rem;
-        color: #fff;
-        text-align: center;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.623)), url(./img/wfm.jpeg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        background-position: top;
-
-        &  h4 {
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-
-        &  button {
-            padding: .5rem 1.7rem;
-            color: #fff;
-            background-color: green;
-            border-radius: .3rem;
-            margin-right: 1rem;
-            border: none;
-            box-shadow:  1px 1px 5px #272727;
-        }
-    }
-
-    &  button {
-        cursor: pointer;
-    }
-
-
-
-
-  
+	& button {
+		cursor: pointer;
+	}
 }
 .contact {
+	& input {
+		padding: 1rem;
+		margin: 1rem 0;
+		width: 100%;
+		border: none;
+		border-radius: 0.5rem;
+		box-shadow: 1px 1px 5px #e2e2e2;
+	}
 
-    &  input {
-        padding: 1rem;
-        margin: 1rem 0;
-        width: 100%;
-        border: none;
-        border-radius: .5rem;
-        box-shadow: 1px 1px 5px #e2e2e2;
-    }
-
-    &  textarea {
-        padding: 1rem;
-        border: none;
-        box-shadow: 1px 1px 5px #e2e2e2;
-        border-radius: .5rem;
-    }
+	& textarea {
+		padding: 1rem;
+		border: none;
+		box-shadow: 1px 1px 5px #e2e2e2;
+		border-radius: 0.5rem;
+	}
 }
 
 .overlay {
-    background-color: rgba(7, 7, 7, 0.274);
+	background-color: rgba(7, 7, 7, 0.274);
 }

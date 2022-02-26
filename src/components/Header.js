@@ -4,9 +4,8 @@ import logo from "../img/logo.png";
 
 const Header = () => {
 	const handleToggle = () => {
-		const width = window.screen.width;
 		let link = document.getElementById("link").style.display;
-		if (link == "block") {
+		if (link === "block") {
 			document.getElementById("link").style.height = "0";
 			document.getElementById("link").style.opacity = "0";
 			document.getElementById("link").style.overflow = "hidden";
@@ -20,7 +19,7 @@ const Header = () => {
 	};
 	return (
 		<div className="header">
-			<img src={logo} />
+			<img alt="header-logo" src={logo} />
 			<ul id="link">
 				<li>Home</li>
 				<li>Portfolio</li>

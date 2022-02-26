@@ -22,7 +22,7 @@ const Hero = ({openModal}) => {
                     </div>
                     <div className="cta">
                         <button onClick={openModal}>Hire now</button>
-                        <a style={{color:'black'}} href="google.com">Download CV &rarr;</a>
+                        <a style={{color:'black'}} target="_blank" href="https://drive.google.com/file/d/1dqfrZPjNilMGin8x41IwuhfeNswjPLUq/view?usp=sharing">Download CV &rarr;</a>
                     </div>
                 </div>
                 <div className="imgshow">

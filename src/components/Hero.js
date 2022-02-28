@@ -1,8 +1,8 @@
 import React from "react";
 
 import fsp from "../img/fsp.png";
-import venue from "../img/venue.png";
-import trello from "../img/trello.png";
+import venue from "../img/ultra.jpeg";
+import trello from "../img/income.jpeg";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";

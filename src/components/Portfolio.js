@@ -66,7 +66,6 @@ const Portfolio = () => {
 			bottom: "auto",
 			marginRight: "-50%",
 			transform: "translate(-50%, -50%)",
-			width: "40vw",
 			position: "relative",
 			zIndex: "100",
 			border: "none",
@@ -79,76 +78,83 @@ const Portfolio = () => {
 	};
 
 	return (
-		<div className="container portfolio">
-			<Modal
-				isOpen={modalIsOpen}
-				onRequestClose={closeModal}
-				style={customStyles}
-				contentLabel="Example Modal"
-			>
-				<p
-					onClick={closeModal}
-					style={{ textAlign: "right", fontSize: "1.3rem", cursor: "pointer" }}
-				>
-					&times;
-				</p>
-				<div>
-					<img
-						style={{ width: "100%", margin: ".5rem 0" }}
-						src={selectedProject.img}
-						alt="pgimg"
-					/>
-				</div>
-				<div style={{ margin: "1rem 0" }}>
-					<h3 style={{ margin: ".3rem 0" }}>{selectedProject.title}</h3>
-					<a
-						href={selectedProject.url}
-						style={{ textDecoration: "none", fontStyle: "italic" }}
-					>
-						<FontAwesomeIcon style={{ marginRight: ".3rem" }} icon={faLink} />
-						{selectedProject.title}
-					</a>
-					<p style={{ marginTop: "1rem" }}>{selectedProject.info}</p>
-				</div>
-			</Modal>
-			<h4 style={{ textAlign: "center" }}>My Recent projects</h4>
-				<p>Here are 3 of my most recent projects</p>
-			<div className="nav">
-				{/* <button onClick={() => setCategory("all")}>All</button> */}
-				{/* <button onClick={() => setCategory("react")}>React</button>
+    <div className="container portfolio">
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+        className="modalcontainer"
+      >
+        <div>
+          <p
+            onClick={closeModal}
+            style={{
+              textAlign: "right",
+              fontSize: "1.3rem",
+              cursor: "pointer",
+            }}
+          >
+            &times;
+          </p>
+          <div>
+            <img
+              style={{ width: "100%", margin: ".5rem 0" }}
+              src={selectedProject.img}
+              alt="pgimg"
+            />
+          </div>
+          <div style={{ margin: "1rem 0" }}>
+            <h3 style={{ margin: ".3rem 0" }}>{selectedProject.title}</h3>
+            <a
+              href={selectedProject.url}
+              style={{ textDecoration: "none", fontStyle: "italic" }}
+            >
+              <FontAwesomeIcon style={{ marginRight: ".3rem" }} icon={faLink} />
+              {selectedProject.title}
+            </a>
+            <p style={{ marginTop: "1rem" }}>{selectedProject.info}</p>
+          </div>
+        </div>
+      </Modal>
+      <h4 style={{ textAlign: "center" }}>My Recent projects</h4>
+      <p>Here are 3 of my most recent projects</p>
+      <div className="nav">
+        {/* <button onClick={() => setCategory("all")}>All</button> */}
+        {/* <button onClick={() => setCategory("react")}>React</button>
 				<button onClick={() => setCategory("landing")}>Landing page</button>
 				<button onClick={() => setCategory("api")}>API integration</button> */}
-			</div>
+      </div>
 
-			<div className="projects">
-				{projects
-					.map((project) =>
-						project.category.includes(category) ? (
-							<div
-								onClick={() => {
-									setSelectedPoject(project);
-									openModal();
-								}}
-								className="project"
-							>
-								<img alt="" src={project.img} />
-								<div className="info">
-									<h5>{project.title}</h5>
-									<p>{project.info.slice(1, 20)}...</p>
-								</div>
-							</div>
-						) : null
-					)
-					.slice(start, end)}
-			</div>
-			{category === "all" ? (
-				<div className="pagin" style={{ textAlign: "right" }}>
-					<button onClick={() => movePage(-1)}>&larr; Prev</button>
-					<button onClick={() => movePage(1)}>Next &rarr;</button>
-				</div>
-			) : null}
-		</div>
-	);
+      <div className="projects">
+        {projects
+          .map((project) =>
+            project.category.includes(category) ? (
+              <div
+                onClick={() => {
+                  setSelectedPoject(project);
+                  openModal();
+                }}
+                className="project"
+              >
+                <img alt="" src={project.img} />
+                <div className="info">
+                  <h5>{project.title}</h5>
+                  <p>{project.info.slice(1, 20)}...</p>
+                </div>
+              </div>
+            ) : null
+          )
+          .slice(start, end)}
+      </div>
+      {category === "all" ? (
+        <div className="pagin" style={{ textAlign: "right" }}>
+          <button onClick={() => movePage(-1)}>&larr; Prev</button>
+          <button onClick={() => movePage(1)}>Next &rarr;</button>
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 export default Portfolio;

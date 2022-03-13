@@ -39,9 +39,9 @@
 		grid-column: 1/-1;
 		width: 100%;
 		padding: 3rem 0;
-		@media only screen and (max-width: 600px) {
-			padding: 3rem 1rem;
-		}
+		// @media only screen and (max-width: 600px) {
+		// 	padding: 3rem 1rem;
+		// }
 	}
 
 	//styling header
@@ -360,4 +360,18 @@
 
 .overlay {
 	background-color: rgba(7, 7, 7, 0.274);
+}
+
+.modalcontainer {
+	width: 40vw;
+	background-color: white;
+	zIndex: 100;
+	border: none;
+	outline: none;
+	padding: 1rem;
+	borderRadius: .5rem;
+	boxShadow: 1px 1px 1rem rgba(7, 7, 7, 0.474);
+	@media only screen and (max-width: 600px) {
+				width: 90vw;
+			}
 }

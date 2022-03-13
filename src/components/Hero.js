@@ -15,8 +15,7 @@ const Hero = ({ openModal }) => {
 					<h1 style={{ margin: "1rem 0" }}>Need to do something on the web?</h1>
 					<h3 style={{ margin: "1rem 0" }}>You've come to the right place</h3>
 					<div style={{ display: "flex", alignItems: "center" }}>
-						<p>I am a web engineer with experience working with</p>
-						<p>HTML</p>
+						<p>I am a web engineer with experience working with technologies like: HTML5/CSS3, SCSS, JavaScript, React.js, ReactNative, firebase and Git</p>
 					</div>
 					<div className="cta">
 						<button onClick={openModal}>Hire now</button>

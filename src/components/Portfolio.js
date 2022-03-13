@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 
-import venue from "../img/venue.png";
-import natours from "../img/natours.png";
-import nexter from "../img/nexter.png";
-import trello from "../img/trello.png";
-import letme from "../img/letme.png";
-import huddle from "../img/huddle.png";
-import butgety from "../img/butgety.png";
+import pantone from "../img/pantone.png";
+import ultra from "../img/ultra.jpeg";
 import fsp from "../img/fsp.png";
 
 import Modal from "react-modal";
@@ -16,68 +11,33 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 const Portfolio = () => {
 	const [start, setStart] = useState(0);
 	const [end, setEnd] = useState(6);
-	const [category, setCategory] = useState("all");
+	const [category] = useState("all");
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [selectedProject, setSelectedPoject] = useState({});
 
 	const projects = [
-		{
-			title: "Huddle",
-			img: huddle,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all,landing",
-		},
-		{
-			title: "FSP",
-			img: fsp,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all,landing,react",
-		},
-		{
-			title: "Venue",
-			img: venue,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all,landing,react,",
-		},
-		{
-			title: "Natours",
-			img: natours,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all,landing",
-		},
-		{
-			title: "Trello",
-			img: trello,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all,react",
-		},
-		{
-			title: "Nexter",
-			img: nexter,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all,landing,react",
-		},
-		{
-			title: "Let me",
-			img: letme,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all,landing",
-		},
-		{
-			title: "Budgety",
-			img: butgety,
-			info: "Lorem ispum dorjbe kugr khg eugy  bnvehgg euuier eiur t ij khi eu wuyg eioquh uh ei si uher kwui ieonv",
-			url: "google.com",
-			category: "all",
-		},
-	];
+    {
+      title: "Pantone",
+      img: pantone,
+      info: "A color picking, combination and color sharing app, designed to help color lovers get productive in an easier way",
+      url: "https://connect.pantone.com",
+      category: "all,landing",
+    },
+    {
+      title: "FSP",
+      img: fsp,
+      info: "An investment based web app that allows users to create a portfolio of investment with the company, monitor their investment plan, and withdraw earnings when needed.",
+      url: "https://freedomsynergypro.com/",
+      category: "all,landing,react",
+    },
+    {
+      title: "Ultratalk",
+      img: ultra,
+      info: "A social media bot builder web app designed to allow users create their own social media bots to respond to their target customers on Facebook, Instagram, Whatsapp ans SMS",
+      url: "https://ultratalk.io/",
+      category: "all",
+    },
+  ];
 
 	const movePage = (direction) => {
 		if (
@@ -142,21 +102,22 @@ const Portfolio = () => {
 				<div style={{ margin: "1rem 0" }}>
 					<h3 style={{ margin: ".3rem 0" }}>{selectedProject.title}</h3>
 					<a
-						href="google.com"
+						href={selectedProject.url}
 						style={{ textDecoration: "none", fontStyle: "italic" }}
 					>
 						<FontAwesomeIcon style={{ marginRight: ".3rem" }} icon={faLink} />
-						swe
+						{selectedProject.title}
 					</a>
 					<p style={{ marginTop: "1rem" }}>{selectedProject.info}</p>
 				</div>
 			</Modal>
 			<h4 style={{ textAlign: "center" }}>My Recent projects</h4>
+				<p>Here are 3 of my most recent projects</p>
 			<div className="nav">
-				<button onClick={() => setCategory("all")}>All</button>
-				<button onClick={() => setCategory("react")}>React</button>
+				{/* <button onClick={() => setCategory("all")}>All</button> */}
+				{/* <button onClick={() => setCategory("react")}>React</button>
 				<button onClick={() => setCategory("landing")}>Landing page</button>
-				<button onClick={() => setCategory("api")}>API integration</button>
+				<button onClick={() => setCategory("api")}>API integration</button> */}
 			</div>
 
 			<div className="projects">
